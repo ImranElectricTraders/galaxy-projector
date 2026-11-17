@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>y</title>
+  <style>
+body {
+  font-family: sans-serif;
+  background: #0f0f23;
+  margin: 0;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+}
+
+.btn {
+  padding: 14px 32px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  background: #6C63FF;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn:active {
+  transform: scale(0.95);
+  background: #5a52e0;
+}
+
+#output {
+  color: #aaa;
+  margin-top: 16px;
+}
+  </style>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign LED Galaxy Light - Galaxy Projector | Imran Electric Traders</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- jsPDF Library for Automatic PDF Invoice Generation -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <style>
+    body {
+      background-color: #09090b;
+      color: #fafafa;
+    }
+    .gold-gradient {
+      background: linear-gradient(135deg, #facc15 0%, #eab308 50%, #ca8a04 100%);
+    }
+    .gold-glow {
+      box-shadow: 0 0 25px rgba(250, 204, 21, 0.25);
+    }
+    /* Animated Checkmark CSS */
+    .checkmark-circle {
+      stroke-dasharray: 166;
+      stroke-dashoffset: 166;
+      stroke-width: 3;
+      stroke-miterlimit: 10;
+      stroke: #facc15;
+      fill: none;
+      animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+    }
+    .checkmark-check {
+      transform-origin: 50% 50%;
+      stroke-dasharray: 48;
+      stroke-dashoffset: 48;
+      stroke: #facc15;
+      stroke-width: 4;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+      animation: stroke 0.35s cubic-bezier(0.65, 0, 0.45, 1) 0.55s forwards;
+    }
+    @keyframes stroke {
+      100% { stroke-dashoffset: 0; }
+    }
+    @keyframes scalePop {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+    }
+    .checkmark-svg {
+      animation: scalePop 0.4s ease-in-out 0.85s both;
+    }
+  </style>
+</head>
+<body class="font-sans antialiased selection:bg-yellow-400 selection:text-black pb-24">
+
+  <!-- Top COD Ticker Bar -->
+  <div class="bg-yellow-400 text-black text-center text-xs font-extrabold py-2 px-3 tracking-wide uppercase">
+    ⚡ Cash on Delivery All Over Pakistan • Limited Stock Offer
+  </div>
+
+  <!-- Main Landing Page Wrapper -->
+  <div id="landingWrapper" class="max-w-md mx-auto bg-zinc-950 min-h-screen border-x border-zinc-800/80 shadow-2xl">
+
+    <!-- Branding Header with logo.jpg -->
+    <header class="sticky top-0 z-40 bg-zinc-950/95 backdrop-blur border-b border-yellow-500/20 px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <img src="logo.jpg" alt="Imran Electric Traders Logo"
+             onerror="this.style.display='none'; document.getElementById('logoFallback').classList.remove('hidden');"
+             class="w-11 h-11 rounded-xl object-cover border border-yellow-400/60 shadow" />
+        <div id="logoFallback" class="hidden w-11 h-11 rounded-xl gold-gradient text-black font-black flex items-center justify-center text-base">
+          IET
+        </div>
+        <div>
+          <h2 class="font-black text-sm sm:text-base tracking-wide text-yellow-400 leading-tight">
+            IMRAN ELECTRIC TRADERS
+          </h2>
+          <p class="text-[11px] text-zinc-400">Official Online Store • Lahore</p>
+        </div>
+      </div>
+
+      <a href="https://wa.me/923134556240?text=Assalam-o-Alaikum!%20Mujhe%20Galaxy%20Projector%20ke%20baray%20mein%20maloomat%20chahiye." target="_blank"
+         class="bg-zinc-900 hover:bg-zinc-800 border border-yellow-400/40 text-yellow-400 text-xs font-bold px-3 py-2 rounded-xl transition">
+        WhatsApp
+      </a>
+    </header>
+
+    <!-- Product Media Gallery (2 Photos + 1 Video) -->
+    <section class="p-4">
+      <div class="relative rounded-2xl overflow-hidden bg-black border border-yellow-500/30 shadow-xl aspect-square flex items-center justify-center">
+        <span class="absolute top-3 left-3 z-10 gold-gradient text-black text-[11px] font-black px-3 py-1 rounded-full uppercase tracking-wider shadow">
+          ★ Best Seller
+        </span>
+        <span class="absolute top-3 right-3 z-10 bg-black/80 border border-yellow-400/50 text-yellow-400 text-[11px] font-bold px-2.5 py-1 rounded-full">
+          COD Available
+        </span>
+
+        <!-- Image Viewer -->
+        <img id="mainPhotoViewer" src="product1.jpg" alt="Sign LED Galaxy Light Projector"
+             class="w-full h-full object-cover transition duration-300" />
+
+        <!-- Video Viewer (Hidden until video tab selected) -->
+        <video id="mainVideoViewer" src="product.mp4" poster="product1.jpg" controls playsinline
+               class="hidden w-full h-full object-cover bg-black"></video>
+      </div>
+
+      <!-- Media Switcher Thumbnails (Photo 1, Photo 2, Video) -->
+      <div class="grid grid-cols-3 gap-2.5 mt-3">
+        <button type="button" onclick="switchMedia('photo1')" id="tab-photo1"
+                class="media-tab relative rounded-xl overflow-hidden border-2 border-yellow-400 bg-zinc-900 h-20 transition">
+          <img src="product1.jpg" alt="Photo 1" class="w-full h-full object-cover" />
+          <span class="absolute bottom-0 inset-x-0 bg-black/75 text-[10px] text-yellow-400 font-bold py-0.5 text-center">Photo 1</span>
+        </button>
+
+        <button type="button" onclick="switchMedia('photo2')" id="tab-photo2"
+                class="media-tab relative rounded-xl overflow-hidden border-2 border-zinc-800 bg-zinc-900 h-20 opacity-75 hover:opacity-100 transition">
+          <img src="product2.jpg" alt="Photo 2" class="w-full h-full object-cover" />
+          <span class="absolute bottom-0 inset-x-0 bg-black/75 text-[10px] text-zinc-200 font-bold py-0.5 text-center">Photo 2</span>
+        </button>
+
+        <button type="button" onclick="switchMedia('video')" id="tab-video"
+                class="media-tab relative rounded-xl overflow-hidden border-2 border-zinc-800 bg-zinc-900 h-20 opacity-75 hover:opacity-100 flex flex-col items-center justify-center transition">
+          <div class="w-8 h-8 rounded-full gold-gradient text-black flex items-center justify-center font-black text-xs shadow">
+            ▶
+          </div>
+          <span class="text-[10px] text-yellow-400 font-bold mt-1">Watch Video</span>
+        </button>
+      </div>
+
+      <!-- Product Title & Pricing -->
+      <div class="mt-5">
+        <div class="flex items-center gap-2 text-xs text-yellow-400 font-bold">
+          <span>★★★★★</span>
+          <span class="text-zinc-400 font-normal">(4.9 Rating • Verified Quality)</span>
+        </div>
+
+        <h1 class="text-2xl font-black text-white mt-1 leading-snug">
+          SIGN LED GALAXY LIGHT <span class="text-yellow-400">(Galaxy Projector)</span>
+        </h1>
+
+        <div class="flex items-baseline gap-3 mt-2">
+          <span class="text-3xl font-black text-yellow-400">Rs. 2,500</span>
+          <span class="text-sm text-zinc-500 line-through">Rs. 3,800</span>
+          <span class="bg-yellow-400/15 border border-yellow-400/40 text-yellow-300 text-xs font-bold px-2.5 py-0.5 rounded-md">
+            Special Offer
+          </span>
+        </div>
+
+        <!-- Highlights Pills -->
+        <div class="grid grid-cols-3 gap-2 mt-4 text-center">
+          <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-2.5">
+            <span class="text-base block">🎵</span>
+            <span class="text-[11px] font-bold text-zinc-200 mt-1 block">Music & Lights</span>
+          </div>
+          <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-2.5">
+            <span class="text-base block">🎮</span>
+            <span class="text-[11px] font-bold text-zinc-200 mt-1 block">Remote Control</span>
+          </div>
+          <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-2.5">
+            <span class="text-base block">🌌</span>
+            <span class="text-[11px] font-bold text-zinc-200 mt-1 block">Stars & Nebula</span>
+          </div>
+        </div>
+
+        <!-- Product Description -->
+        <div class="mt-4 bg-zinc-900/90 border border-zinc-800 rounded-2xl p-4 space-y-2 text-sm text-zinc-300">
+          <h3 class="font-bold text-yellow-400 text-xs uppercase tracking-wider">Product Features:</h3>
+          <p class="flex items-start gap-2"><span class="text-yellow-400 font-bold">✔</span> Poore kamre ko khubsurat Galaxy stars aur Nebula clouds se roshan karein.</p>
+          <p class="flex items-start gap-2"><span class="text-yellow-400 font-bold">✔</span> Built-in Bluetooth/Music mode aur smart remote control ke sath.</p>
+          <p class="flex items-start gap-2"><span class="text-yellow-400 font-bold">✔</span> Bedroom, gaming setup, party aur gift dene ke liye behtareen item.</p>
+        </div>
+      </div>
+
+      <!-- ORDER FORM SECTION -->
+      <div id="orderSection" class="mt-6 bg-zinc-900 border-2 border-yellow-400/80 rounded-2xl p-4 gold-glow">
+        <div class="text-center border-b border-zinc-800 pb-3 mb-4">
+          <span class="bg-yellow-400/15 text-yellow-400 text-[11px] font-bold px-3 py-1 rounded-full uppercase">
+            Cash On Delivery Form
+          </span>
+          <h2 class="text-xl font-black text-white mt-2">Apna Order Place Karein</h2>
+          <p class="text-xs text-zinc-400 mt-0.5">Details fill karein, hum call karke order confirm karenge</p>
+        </div>
+
+        <form id="codOrderForm" class="space-y-4">
+          <!-- Quantity Adjuster -->
+          <div class="bg-zinc-950 border border-zinc-800 rounded-xl p-3 flex items-center justify-between">
+            <div>
+              <span class="block text-xs font-bold text-zinc-300">Select Quantity</span>
+              <span class="text-[11px] text-yellow-400">Rs. 2,500 per piece</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <button type="button" onclick="updateQty(-1)"
+                      class="w-9 h-9 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-yellow-400 font-black text-lg flex items-center justify-center transition">
+                −
+              </button>
+              <span id="qtyDisplay" class="w-6 text-center font-black text-lg text-white">1</span>
+              <button type="button" onclick="updateQty(1)"
+                      class="w-9 h-9 rounded-lg gold-gradient text-black font-black text-lg flex items-center justify-center transition">
+                +
+              </button>
+            </div>
+          </div>
+
+          <!-- Customer Name -->
+          <div>
+            <label for="custName" class="block text-xs font-bold text-zinc-300 mb-1">Full Name (Poora Naam) *</label>
+            <input type="text" id="custName" required placeholder="Apna naam likhein"
+                   class="w-full bg-zinc-950 border border-zinc-700 focus:border-yellow-400 rounded-xl px-3.5 py-3 text-sm text-white placeholder-zinc-500 focus:outline-none" />
+          </div>
+
+          <!-- Phone Number -->
+          <div>
+            <label for="custPhone" class="block text-xs font-bold text-zinc-300 mb-1">Phone / WhatsApp Number *</label>
+            <input type="tel" id="custPhone" required placeholder="03XXXXXXXXX"
+                   class="w-full bg-zinc-950 border border-zinc-700 focus:border-yellow-400 rounded-xl px-3.5 py-3 text-sm text-white placeholder-zinc-500 focus:outline-none" />
+          </div>
+
+          <!-- City -->
+          <div>
+            <label for="custCity" class="block text-xs font-bold text-zinc-300 mb-1">City (Shehar) *</label>
+            <input type="text" id="custCity" required placeholder="Maslan: Lahore, Karachi, Islamabad"
+                   class="w-full bg-zinc-950 border border-zinc-700 focus:border-yellow-400 rounded-xl px-3.5 py-3 text-sm text-white placeholder-zinc-500 focus:outline-none" />
+          </div>
+
+          <!-- Complete Address -->
+          <div>
+            <label for="custAddress" class="block text-xs font-bold text-zinc-300 mb-1">Complete Address (Mukammal Pata) *</label>
+            <textarea id="custAddress" rows="2" required placeholder="Ghar number, gali, muhalla, mashhoor jagah..."
+                      class="w-full bg-zinc-950 border border-zinc-700 focus:border-yellow-400 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-zinc-500 focus:outline-none"></textarea>
+          </div>
+
+          <!-- Live Bill Summary Box -->
+          <div class="bg-zinc-950 border border-yellow-500/40 rounded-xl p-3.5 space-y-2 text-xs">
+            <div class="flex justify-between text-zinc-400">
+              <span>Product Price (<span id="billQtyLabel">1</span> × Rs. 2,500):</span>
+              <span id="billSubtotal" class="font-bold text-zinc-200">Rs. 2,500</span>
+            </div>
+            <div class="flex justify-between text-zinc-400">
+              <span>Delivery Charges (All Pakistan):</span>
+              <span class="font-bold text-zinc-200">Rs. 250</span>
+            </div>
+            <div class="border-t border-zinc-800 pt-2 flex justify-between items-center text-sm">
+              <span class="font-bold text-white">Total Payment (COD):</span>
+              <span id="billTotal" class="font-black text-lg text-yellow-400">Rs. 2,750</span>
+            </div>
+          </div>
+
+          <!-- Send Order Button -->
+          <button type="submit" id="sendOrderBtn"
+                  class="w-full gold-gradient hover:brightness-110 text-black font-black text-base py-4 rounded-xl shadow-lg uppercase tracking-wide transition cursor-pointer">
+            Send Order • Rs. 2,750
+          </button>
+
+          <p id="formError" class="hidden text-center text-xs text-rose-400 font-semibold"></p>
+        </form>
+      </div>
+    </section>
+
+    <!-- Store Footer -->
+    <footer class="border-t border-zinc-800/80 py-6 px-4 text-center text-xs text-zinc-400 space-y-1">
+      <p class="font-bold text-yellow-400">IMRAN ELECTRIC TRADERS</p>
+      <p>📞 0313-4556240 • ✉️ imranelectrictraders@gmail.com</p>
+      <p class="text-[11px] text-zinc-500">Shahdara, Lahore, Pakistan</p>
+    </footer>
+  </div>
+
+  <!-- ANIMATED ORDER SUCCESS SCREEN (Hidden Initially) -->
+  <div id="orderSuccessScreen" class="hidden max-w-md mx-auto min-h-screen bg-zinc-950 border-x border-zinc-800 flex flex-col items-center justify-center p-6 text-center">
+    <!-- Animated Tick SVG -->
+    <div class="w-24 h-24 rounded-full bg-yellow-400/10 flex items-center justify-center mb-5">
+      <svg class="checkmark-svg w-20 h-20" viewBox="0 0 52 52">
+        <circle class="checkmark-circle" cx="26" cy="26" r="24" />
+        <path class="checkmark-check" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+      </svg>
+    </div>
+
+    <span class="bg-yellow-400/15 border border-yellow-400/40 text-yellow-400 text-xs font-bold px-3 py-1 rounded-full">
+      Order ID: <span id="succOrderId">#IET-1001</span>
+    </span>
+
+    <h2 class="text-2xl font-black text-white mt-3">Order Has Been Placed!</h2>
+    <p class="text-sm text-zinc-400 mt-2 leading-relaxed">
+      Shukriya <strong id="succName" class="text-yellow-400">Customer</strong>! Aapka order aur bill receive ho gaya hai. Humari team jald hi aapke number (<span id="succPhone" class="text-white font-semibold"></span>) par call karke order confirm karegi.
+    </p>
+
+    <!-- Mini Order Summary Card -->
+    <div class="w-full bg-zinc-900 border border-zinc-800 rounded-2xl p-4 mt-5 text-left text-xs space-y-2">
+      <div class="flex justify-between">
+        <span class="text-zinc-400">Product:</span>
+        <span class="font-bold text-white">Sign LED Galaxy Light</span>
+      </div>
+      <div class="flex justify-between">
+        <span class="text-zinc-400">Quantity:</span>
+        <span id="succQty" class="font-bold text-white">1</span>
+      </div>
+      <div class="flex justify-between">
+        <span class="text-zinc-400">Delivery Charges:</span>
+        <span class="font-bold text-white">Rs. 250</span>
+      </div>
+      <div class="border-t border-zinc-800 pt-2 flex justify-between text-sm">
+        <span class="text-zinc-300 font-bold">Total COD Bill:</span>
+        <span id="succTotal" class="font-black text-yellow-400">Rs. 2,750</span>
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="w-full space-y-2.5 mt-6">
+      <button type="button" onclick="downloadCustomerPDF()"
+              class="w-full bg-zinc-900 hover:bg-zinc-800 border border-yellow-400/50 text-yellow-400 font-bold text-sm py-3.5 rounded-xl transition">
+        📄 Download PDF Receipt
+      </button>
+
+      <a id="waDirectBtn" href="https://wa.me/923134556240" target="_blank"
+         class="block w-full gold-gradient text-black font-black text-sm py-3.5 rounded-xl shadow-lg">
+        💬 WhatsApp Par Confirm Karein
+      </a>
+    </div>
+  </div>
+
+  <!-- Sticky Bottom Quick-Order Bar -->
+  <div id="bottomStickyBar" class="fixed bottom-0 inset-x-0 bg-zinc-950/95 backdrop-blur border-t border-yellow-500/30 px-4 py-2.5 z-40">
+    <div class="max-w-md mx-auto flex items-center justify-between">
+      <div>
+        <span class="block text-[10px] text-zinc-400 uppercase">Total Bill (With Delivery)</span>
+        <span id="stickyTotalText" class="text-lg font-black text-yellow-400">Rs. 2,750</span>
+      </div>
+      <a href="#orderSection"
+         class="gold-gradient text-black font-black text-xs uppercase px-5 py-3 rounded-xl shadow">
+        Order Now ↓
+      </a>
+    </div>
+  </div>
+
+  <script>
+    const UNIT_PRICE = 2500;
+    const DELIVERY_CHARGE = 250;
+    let quantity = 1;
+    let latestOrderData = null;
+
+    // 1. Switch Media Gallery (Photo 1, Photo 2, Video)
+    function switchMedia(type) {
+      const photoViewer = document.getElementById('mainPhotoViewer');
+      const videoViewer = document.getElementById('mainVideoViewer');
+      const tabs = ['photo1', 'photo2', 'video'];
+
+      tabs.forEach(t => {
+        const el = document.getElementById('tab-' + t);
+        if (t === type) {
+          el.classList.remove('border-zinc-800', 'opacity-75');
+          el.classList.add('border-yellow-400', 'opacity-100');
+        } else {
+          el.classList.remove('border-yellow-400', 'opacity-100');
+          el.classList.add('border-zinc-800', 'opacity-75');
+        }
+      });
+
+      if (type === 'video') {
+        photoViewer.classList.add('hidden');
+        videoViewer.classList.remove('hidden');
+        videoViewer.play().catch(() => {});
+      } else {
+        videoViewer.pause();
+        videoViewer.classList.add('hidden');
+        photoViewer.classList.remove('hidden');
+        photoViewer.src = type === 'photo1' ? 'product1.jpg' : 'product2.jpg';
+      }
+    }
+
+    // 2. Quantity & Live Bill Calculation
+    function updateQty(change) {
+      quantity = Math.max(1, quantity + change);
+      const subtotal = quantity * UNIT_PRICE;
+      const grandTotal = subtotal + DELIVERY_CHARGE;
+
+      document.getElementById('qtyDisplay').textContent = quantity;
+      document.getElementById('billQtyLabel').textContent = quantity;
+      document.getElementById('billSubtotal').textContent = 'Rs. ' + subtotal.toLocaleString();
+      document.getElementById('billTotal').textContent = 'Rs. ' + grandTotal.toLocaleString();
+      document.getElementById('stickyTotalText').textContent = 'Rs. ' + grandTotal.toLocaleString();
+      document.getElementById('sendOrderBtn').textContent = 'Send Order • Rs. ' + grandTotal.toLocaleString();
+    }
+
+    // 3. Generate Clean PDF Invoice using jsPDF
+    function buildInvoicePDF(order) {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+
+      // Header Banner (Black & Gold)
+      doc.setFillColor(18, 18, 20);
+      doc.rect(0, 0, 210, 42, 'F');
+
+      doc.setTextColor(250, 204, 21);
+      doc.setFontSize(20);
+      doc.setFont('helvetica', 'bold');
+      doc.text('IMRAN ELECTRIC TRADERS', 15, 19);
+
+      doc.setTextColor(220, 220, 220);
+      doc.setFontSize(10);
+      doc.setFont('helvetica', 'normal');
+      doc.text('Lahore, Pakistan | Phone: 0313-4556240 | imranelectrictraders@gmail.com', 15, 28);
+      doc.text('CASH ON DELIVERY (COD) ORDER INVOICE', 15, 35);
+
+      // Order Meta Info
+      doc.setTextColor(20, 20, 20);
+      doc.setFontSize(11);
+      doc.setFont('helvetica', 'bold');
+      doc.text('Order ID: ' + order.orderId, 15, 54);
+      doc.setFont('helvetica', 'normal');
+      doc.text('Order Date: ' + order.date, 15, 61);
+      doc.text('Payment Method: Cash on Delivery (COD)', 15, 68);
+
+      // Customer Details Box
+      doc.setFillColor(245, 245, 245);
+      doc.roundedRect(15, 76, 180, 46, 3, 3, 'F');
+
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(11);
+      doc.text('CUSTOMER DETAILS:', 20, 85);
+
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(10);
+      doc.text('Customer Name: ' + order.name, 20, 93);
+      doc.text('Phone Number: ' + order.phone, 20, 100);
+      doc.text('City: ' + order.city, 20, 107);
+      const splitAddress = doc.splitTextToSize('Address: ' + order.address, 170);
+      doc.text(splitAddress, 20, 114);
+
+      // Product & Bill Table Header
+      const tableTop = 135;
+      doc.setFillColor(18, 18, 20);
+      doc.rect(15, tableTop, 180, 10, 'F');
+      doc.setTextColor(250, 204, 21);
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(10);
+      doc.text('PRODUCT DESCRIPTION', 20, tableTop + 7);
+      doc.text('QTY', 120, tableTop + 7);
+      doc.text('PRICE', 142, tableTop + 7);
+      doc.text('AMOUNT', 170, tableTop + 7);
+
+      // Product Row
+      doc.setTextColor(20, 20, 20);
+      doc.setFont('helvetica', 'normal');
+      doc.text('SIGN LED GALAXY LIGHT (Galaxy Projector)', 20, tableTop + 19);
+      doc.text(String(order.qty), 122, tableTop + 19);
+      doc.text('Rs. 2,500', 142, tableTop + 19);
+      doc.text('Rs. ' + order.subtotal.toLocaleString(), 170, tableTop + 19);
+
+      // Line Divider
+      doc.setDrawColor(200, 200, 200);
+      doc.line(15, tableTop + 26, 195, tableTop + 26);
+
+      // Totals Section
+      doc.setFontSize(10);
+      doc.text('Product Subtotal:', 125, tableTop + 36);
+      doc.text('Rs. ' + order.subtotal.toLocaleString(), 170, tableTop + 36);
+
+      doc.text('Delivery Charges:', 125, tableTop + 44);
+      doc.text('Rs. ' + order.delivery.toLocaleString(), 170, tableTop + 44);
+
+      doc.setFillColor(250, 204, 21);
+      doc.rect(120, tableTop + 50, 75, 11, 'F');
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(11);
+      doc.text('TOTAL PAYABLE:', 124, tableTop + 57);
+      doc.text('Rs. ' + order.total.toLocaleString(), 168, tableTop + 57);
+
+      // Footer Note
+      doc.setFont('helvetica', 'italic');
+      doc.setFontSize(9);
+      doc.setTextColor(100, 100, 100);
+      doc.text('Thank you for shopping with Imran Electric Traders!', 15, 220);
+
+      return doc;
+    }
+
+    function downloadCustomerPDF() {
+      if (!latestOrderData) return;
+      const doc = buildInvoicePDF(latestOrderData);
+      doc.save(latestOrderData.orderId + '_Invoice.pdf');
+    }
+
+    // 4. Form Submission -> Generate PDF -> Email to imranelectrictraders@gmail.com
+    document.getElementById('codOrderForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const btn = document.getElementById('sendOrderBtn');
+      const errBox = document.getElementById('formError');
+      errBox.classList.add('hidden');
+      btn.disabled = true;
+      btn.textContent = 'Generating Bill & Placing Order...';
+
+      const subtotal = quantity * UNIT_PRICE;
+      const total = subtotal + DELIVERY_CHARGE;
+      const orderId = 'IET-' + Math.floor(1000 + Math.random() * 9000);
+      const nowStr = new Date().toLocaleString('en-PK', { timeZone: 'Asia/Karachi' });
+
+      latestOrderData = {
+        orderId: orderId,
+        date: nowStr,
+        product: 'SIGN LED GALAXY LIGHT (Galaxy Projector)',
+        qty: quantity,
+        subtotal: subtotal,
+        delivery: DELIVERY_CHARGE,
+        total: total,
+        name: document.getElementById('custName').value.trim(),
+        phone: document.getElementById('custPhone').value.trim(),
+        city: document.getElementById('custCity').value.trim(),
+        address: document.getElementById('custAddress').value.trim()
+      };
+
+      try {
+        // Generate PDF Blob
+        const pdfDoc = buildInvoicePDF(latestOrderData);
+        const pdfBlob = pdfDoc.output('blob');
+
+        // Prepare Email Data + PDF Attachment via FormSubmit
+        const formData = new FormData();
+        formData.append('_subject', `New COD Order (${orderId}) - ${latestOrderData.name} - Rs. ${total}`);
+        formData.append('_template', 'table');
+        formData.append('_captcha', 'false');
+        formData.append('Order_ID', orderId);
+        formData.append('Product_Name', latestOrderData.product);
+        formData.append('Quantity', String(quantity));
+        formData.append('Product_Subtotal', 'Rs. ' + subtotal);
+        formData.append('Delivery_Charges', 'Rs. ' + DELIVERY_CHARGE);
+        formData.append('Total_Payable_COD', 'Rs. ' + total);
+        formData.append('Customer_Name', latestOrderData.name);
+        formData.append('Phone_Number', latestOrderData.phone);
+        formData.append('City', latestOrderData.city);
+        formData.append('Complete_Address', latestOrderData.address);
+        formData.append('attachment', pdfBlob, `${orderId}_Order_Bill.pdf`);
+
+        const res = await fetch('https://formsubmit.co/ajax/imranelectrictraders@gmail.com', {
+          method: 'POST',
+          body: formData
+        });
+
+        const data = await res.json();
+
+        if (res.ok && (data.success === 'true' || data.success === true)) {
+          // Populate Success Screen
+          document.getElementById('succOrderId').textContent = '#' + orderId;
+          document.getElementById('succName').textContent = latestOrderData.name;
+          document.getElementById('succPhone').textContent = latestOrderData.phone;
+          document.getElementById('succQty').textContent = quantity + ' Piece(s)';
+          document.getElementById('succTotal').textContent = 'Rs. ' + total.toLocaleString();
+
+          const waMessage = encodeURIComponent(
+            `Assalam-o-Alaikum Imran Electric Traders!\nMaine abhi order place kiya hai:\nOrder ID: #${orderId}\nProduct: Sign LED Galaxy Light\nQuantity: ${quantity}\nTotal Bill: Rs. ${total} (COD)\nName: ${latestOrderData.name}\nCity: ${latestOrderData.city}`
+          );
+          document.getElementById('waDirectBtn').href = `https://wa.me/923134556240?text=${waMessage}`;
+
+          // Show Animated Success Screen
+          document.getElementById('landingWrapper').classList.add('hidden');
+          document.getElementById('bottomStickyBar').classList.add('hidden');
+          document.getElementById('orderSuccessScreen').classList.remove('hidden');
+          window.scrollTo(0, 0);
+        } else {
+          throw new Error('Submission failed');
+        }
+      } catch (error) {
+        errBox.textContent = 'Order send nahi ho saka. Internet connection check karein aur dobara try karein.';
+        errBox.classList.remove('hidden');
+        btn.disabled = false;
+        btn.textContent = 'Send Order • Rs. ' + total.toLocaleString();
+      }
+    });
+  </script>
+</body>
+</html>
+
+  <script>
+let count = 0;
+const btn = document.getElementById("myBtn");
+const output = document.getElementById("output");
+
+btn.addEventListener("click", () => {
+  count++;
+  output.textContent = "Clicked " + count + " time(s)";
+});
+  </script>
+</body>
+</html>
